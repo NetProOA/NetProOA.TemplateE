@@ -1,4 +1,4 @@
-# NetProOA.TemplateE.Api
+# NetProOA.TemplateE
 
 基于 **NetProOA.Framework** 构建的企业级微服务 API 模板项目，提供开箱即用的服务端开发体验。
 
