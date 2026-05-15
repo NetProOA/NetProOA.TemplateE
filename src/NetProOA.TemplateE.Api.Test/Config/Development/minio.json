@@ -1,0 +1,7 @@
+{
+  "Minio": {
+    "EndPoint": "0.0.0.0:9001",
+    "AccessKey": "qIzCxOe3Ud0q",
+    "SecretKey": "MWbA4uln"
+  }
+}

@@ -1,0 +1,240 @@
+@using Microsoft.Extensions.Options;
+@using RestSharp;
+@using NetProOA.Framework.DataTransfer
+@using NetProOA.TemplateE.Application.Options;
+@using Microsoft.AspNetCore.Authentication;
+@inject IOptions<ApiGatewaySetting> _apiGatewaySetting;
+@inject IOptions<InnerApiGatewaySetting> _innerApiGatewaySetting;
+@inject IOptions<AppSettings> _appSettings;
+@inject NetProOA.Framework.RestSharp.ICustomRestClient _customRestClient;
+@{
+    var access_token = await Context.GetTokenAsync("access_token");
+    var frameworkWebDomain = _appSettings.Value.FrameworkWebHostAddress;
+
+    var client = _customRestClient.NewInstance(new RestSharp.RestClientOptions { BaseUrl = new Uri(_apiGatewaySetting.Value.HostAddress) });
+    var request = new RestSharp.RestRequest("identity/devConfigs/check", method: RestSharp.Method.Post);
+    var ip = Context.Connection.RemoteIpAddress.ToString();
+    request.AddHeader("Content-Type", "application/json");
+    request.AddHeader("Authorization", $"Bearer {access_token}");
+    request.AddJsonBody(new { AppName = "NetProOA.TemplateE", IP = ip });
+    var globalCurrentSiteApiUrl = _apiGatewaySetting.Value.HostAddress;
+    var globalPermissionCodeJson = "{}";
+    #if DEBUG
+        try
+        {
+            var response = client.Post<Dictionary<string, bool>>(request);
+            bool success = false;
+            bool exist = false;
+            // if (response.TryGetValue("succeed", out success) && success == true && response.TryGetValue("data", out exist) && exist == true)
+        {
+        globalCurrentSiteApiUrl = "http://localhost:6901";
+            }
+        }
+        catch (Exception ex)
+        {
+        }
+    #endif
+
+    // var clientPermission = _customRestClient.NewInstance(new RestSharp.RestClientOptions { BaseUrl = new Uri(_innerApiGatewaySetting.Value.HostAddress) });
+    // var requestPermission = new RestSharp.RestRequest("identityInternal/employees/permissionCode?emplid=" + _identityService.GetUserIdentity().EmplId, method: RestSharp.Method.Get);
+    // var responsePermission = clientPermission.Get<Response<string>>(requestPermission);
+    // if (responsePermission.Succeed)
+    // {
+    //     globalPermissionCodeJson = System.Web.HttpUtility.UrlDecode(responsePermission.Data);
+    // }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NetProOA.TemplateE.Web</title>
+
+    <link href="@frameworkWebDomain/lib/layui2.8.18/css/layui.css" rel="stylesheet" />
+    <link href="@frameworkWebDomain/lib/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="@frameworkWebDomain/lib/bootstrap-3.3.7-dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="@frameworkWebDomain/css/base.css" rel="stylesheet" />
+    <link href="@frameworkWebDomain/css/pagination.css" rel="stylesheet" />
+    <link href="@frameworkWebDomain/lib/nprogress/nprogress.css" rel="stylesheet" />
+    <link href="@frameworkWebDomain/lib/wheelmenu/animate.min.css" rel="stylesheet" />
+    <link href="@frameworkWebDomain/lib/wheelmenu/styles.css" rel="stylesheet" />
+    <link href="@frameworkWebDomain/lib/toastr/css/toastr.min.css" rel="stylesheet" />
+    <link href="@frameworkWebDomain/lib/DatePicker/skin/WdatePicker.css" rel="stylesheet" />
+    <link href="@frameworkWebDomain/lib/DatePicker/skin/default/datepicker.css" rel="stylesheet" />
+    <link href="@frameworkWebDomain/lib/dynatree-1.2.4/skin/ui.dynatree.css" rel="stylesheet" />
+    <link href="@frameworkWebDomain/lib/easyvalidator/css/validate.css" rel="stylesheet" />
+    <link href="@frameworkWebDomain/lib/jquery-ui-portal/style/jquery.ui.portal.css" rel="stylesheet" />
+    <link href="@frameworkWebDomain/lib/jquery-ui-portal/style/jquery.ui.portal-desk.css" rel="stylesheet" />
+	<link href="@frameworkWebDomain/lib/WebUploader/webuploader.css" rel="stylesheet" />
+    <link href="@frameworkWebDomain/lib/WebUploader/webuploaderui.css" rel="stylesheet" />
+
+    <script src="@frameworkWebDomain/lib/jquery/jquery-3.1.1.min.js"></script>
+    <script src="@frameworkWebDomain/lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="@frameworkWebDomain/lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="@frameworkWebDomain/lib/nprogress/nprogress.js"></script>
+    <script src="@frameworkWebDomain/js/layoutPlugin.js"></script>
+    <script src="@frameworkWebDomain/js/jquery.pagination.js"></script>
+    <script src="@frameworkWebDomain/lib/toastr/toastr.js"></script>
+    <script src="@frameworkWebDomain/lib/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="@frameworkWebDomain/lib/bootbox/bootbox.js"></script>
+    <script src="@frameworkWebDomain/lib/DatePicker/WdatePicker.js"></script>
+    <script src="@frameworkWebDomain/lib/DatePicker/lang/zh-cn.js"></script>
+    <script src="@frameworkWebDomain/lib/dynatree-1.2.4/jquery.dynatree.js"></script>
+    <script src="@frameworkWebDomain/lib/easyvalidator/js/easy_validator.pack.js"></script>
+    <script src="@frameworkWebDomain/lib/easyvalidator/js/jquery.bgiframe.min.js"></script>
+    <script src="@frameworkWebDomain/lib/jquery-ui-portal/js/jquery.cookie.js"></script>
+    <script src="@frameworkWebDomain/lib/way/way.min.js"></script>
+	<script src="@frameworkWebDomain/lib/WebUploader/webuploader.js"></script>
+    <script src="@frameworkWebDomain/js/base.js"></script>
+    <script src="@frameworkWebDomain/lib/layui2.8.18/layui.js"></script>
+    <script src="@frameworkWebDomain/lib/signalr/dist/browser/signalr.min.js"></script>
+    <script src="@frameworkWebDomain/js/im_base.js"></script>
+
+    <script type="text/javascript">
+        var identityServiceHostAddress = "@_apiGatewaySetting.Value.IdentityServiceHostAddress";
+        var frameworkWebDomain = "@frameworkWebDomain";
+        var imServerAddress = "@_appSettings.Value.IMServerAddress";
+        var globalCurrentSiteApiUrl = "@globalCurrentSiteApiUrl";
+        var globalCurrentPermissionObject = eval(@Html.Raw(globalPermissionCodeJson));
+
+        var token = "Bearer @access_token";
+        localStorage.setItem("token", "{\"access_token\":\"@access_token\"}")
+        //设置全局ajax
+        $.ajaxSetup({
+            dataType: "json",
+            contentType: "application/json",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": token
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR.responseJSON);
+                NProgress.done();
+                switch (jqXHR.status) {
+                    case (500):
+                        toastr.error(jqXHR.responseJSON.message);
+                        break;
+                    case (400):
+                        toastr.error(jqXHR.responseJSON.Errors[0].Message);
+                        break;
+                    case (401):
+                        toastr.error("未登录");
+                        break;
+                    case (403):
+                        toastr.error("无权限执行此操作");
+                        break;
+                    case (408):
+                        toastr.error("请求超时");
+                        break;
+                    case (429):
+                        toastr.error("Too Many Requests");
+                        break;
+                    default:
+                        toastr.error("未知错误,请联系管理员");
+                }
+            },
+            cache: false
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        $(function () {
+            setlayout();
+            setTimeout(function () { gridResize(); }, 100);
+
+        });
+
+        function callbackParentResizeChange() {
+            setlayout();
+            try {
+                setTimeout(function () { gridResize(); }, 100);
+            } catch (e) {
+
+            }
+        }
+        function gridResize() {
+            var min = 2;
+            try {
+                $('#oa-table-normal').datagrid('resize', {
+                    width: $('#oa-list').width() - min,
+                    height: $('#oa-list').height()
+                });
+            }
+            catch (e) { }
+        }
+
+  </script>
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo">
+            <span class="glyphicon glyphicon-globe glyphicon-globe" aria-hidden="true"></span>
+        </div>
+        <div class="projectname">
+            <a href="https://netprooa.com" target="_blank">NetProOA</a>
+        </div>
+        <div class="banner">
+            <ul>
+                <li>
+                    <div class="item">
+                        <a href="javascript:" onclick="showOnline()">
+                            <span class="glyphicon glyphicon-comment" style="color:#16baaa" aria-hidden="true"></span>
+                            <span class="">在线<span id="txtOnlineUserConut">0</span>人<span style="margin-left:10px">未读(<span id="txtNotReadCount">0</span>)</span></span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="javascript:" onclick="showNotify()">
+                            <span id="notifycount" class="glyphicon glyphicon-bell " aria-hidden="true" style="color:#16baaa"></span>
+                        </a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <div class="item">
+                        <a href="javascript:" onclick="showPeopleinfo()">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true" style="color:#1e9fff"></span>
+                            <span id="header-username"></span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="/Home/Logout">
+                            <span class="glyphicon glyphicon-off" style="color:#ff5722">
+                            </span>
+                        </a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div id="container">
+        <div id="oa-app">
+            <ul>
+                <li title="" style="position:relative"> <a href="" target="_self" name="" class=""><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></a> </li>
+            </ul>
+        </div>
+        <div id="oa-left">
+            <div id="oa-left-title" class="title"></div>
+            <div id="oa-submenus" class="oamenu">
+                <ul></ul>
+            </div>
+        </div>
+        <div id="oa-split">
+            <span></span>
+        </div>
+        <div id="oa-right" style="visibility:hidden">
+            @RenderBody()
+        </div>
+
+    </div>
+
+    <div id="dlg_all" style="position:absolute"></div>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

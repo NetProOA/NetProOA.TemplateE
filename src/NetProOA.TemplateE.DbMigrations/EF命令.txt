@@ -1,0 +1,11 @@
+﻿包管理器控制台
+dotnet tool install --global dotnet-ef
+dotnet tool update --global dotnet-ef
+dotnet ef
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 7.0.13 #添加到特定项目上，然后才能使用这些工具 Microsoft.EntityFrameworkCore.Design
+dotnet ef migrations add 000 -c EFDBContext  -o Migrations
+dotnet ef database update -c EFDBContext
+/*移除迁移*/
+dotnet ef migrations remove -c EFDBContext
+/*生成脚本*/
+适用于第一个迁移:dotnet ef migrations script -c EFDBContext -o Migrations/001.sql

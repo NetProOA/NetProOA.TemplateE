@@ -1,0 +1,11 @@
+﻿{
+  "Consul": {
+    "Enable": false,
+    "ClientUrl": "http://0.0.0.0:8500"
+  },
+  "Service": {
+    "Name": "NetProOA.TemplateE.Api",
+    "IP": "0.0.0.0",
+    "Node": "NetProOA.TemplateE.Api.001"
+  }
+}

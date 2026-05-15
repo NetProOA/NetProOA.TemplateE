@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.13" />
+    <PackageReference Include="NetProOA.Framework.DataTransfer" Version="1.1.5.8" />
+    <PackageReference Include="NetProOA.Framework.Infrastructure.Crosscutting" Version="1.2.0.2" />
+    <PackageReference Include="NetProOA.Framework.Infrastructure.Newtonsoft" Version="1.2.0.9" />
+    <PackageReference Include="NetProOA.Framework.Polly" Version="1.1.7.5" />
+	 
+  </ItemGroup>
+
+</Project>

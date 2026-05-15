@@ -1,0 +1,27 @@
+﻿{
+  "NacosRegDiscovery": {
+    "Enable": false,
+    "Namespace": "c7d3c1b2-fed5-417a-b3e3-99106cc507b0",
+    "ServerAddresses": [ "http://0.0.0.0:8848" ],
+    "ServiceName": "NetProOA.TemplateE.Api",
+    "GroupName": "DEFAULT_GROUP",
+    "UserName": "sa",
+    "Password": "sa",
+    "DefaultTimeOut": 15000,
+    "ListenInterval": 1000,
+    "EndPoint": "",
+    "Ip": "",
+    "PreferredNetworks": "",
+    "Port": 0,
+    "Weight": 100,
+    "RegisterEnabled": true,
+    "InstanceEnabled": true,
+    "Ephemeral": true,
+    "ConfigUseRpc": true,
+    "NamingUseRpc": true,
+    "NamingLoadCacheAtStart": "",
+    "LBStrategy": "WeightRandom",
+    "Metadata": {
+    }
+  }
+}

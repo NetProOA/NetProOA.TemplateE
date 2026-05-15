@@ -1,0 +1,8 @@
+﻿{
+  "ElasticApm": {
+    "Enable": false,
+    "SecretToken": "",
+    "ServerUrls": "http://0.0.0.0:8200",
+    "ServiceName": "NetProOA.Template.Api"
+  }
+}

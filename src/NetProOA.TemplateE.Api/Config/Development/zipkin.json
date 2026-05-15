@@ -1,0 +1,7 @@
+﻿{
+  "Zipkin": {
+    "CollectorUrl": "http://0.0.0.0:9411",
+    "ServiceName": "NetProOA.TemplateE.Api",
+    "Enable": false
+  }
+}

@@ -1,0 +1,8 @@
+﻿{
+  "Jaeger": {
+    "ServiceName": "NetProOA.Template.Api",
+    "AgentUdpHost": "0.0.0.0",
+    "AgentUdpCompactPort": "6831",
+    "Enable": false
+  }
+}

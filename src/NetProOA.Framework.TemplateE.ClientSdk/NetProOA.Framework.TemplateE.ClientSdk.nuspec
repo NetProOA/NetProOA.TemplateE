@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+	<metadata>
+		<id>NetProOA.Framework.TemplateE.ClientSdk</id>
+		<version>1.0.0.1</version>
+		<title>NetProOA.Framework.TemplateE.ClientSdk</title>
+		<authors>xiao.xiong</authors>
+		<owners>xiao.xiong</owners>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+		<description>NetProOA.Framework.TemplateE.ClientSdk</description>
+		<releaseNotes>
+		</releaseNotes>
+		<copyright>Copyright 2026  (c) NetProOA. All rights reserved.</copyright>
+		<tags>SaaS</tags>
+		<serviceable>true</serviceable>
+		<readme>NetProOA.Framework.TemplateE.ClientSdk.md</readme>
+		<projectUrl>http://192.168.31.132:71/packages/NetProOA.Framework.TemplateE.ClientSdk</projectUrl>
+		<dependencies>
+      <group targetFramework="net7.0"><dependency id="Microsoft.AspNetCore.Authentication.JwtBearer" version="7.0.13" />
+			<dependency id="NetProOA.Framework.DataTransfer" version="1.0.0.5" />
+			<dependency id="NetProOA.Framework.Infrastructure.Crosscutting" version="1.0.3.8" />
+			<dependency id="NetProOA.Framework.Polly" version="1.0.2.4" />
+			<dependency id="NetProOA.Framework.Infrastructure.Newtonsoft" version="1.0.4.0" />
+		</group>
+    </dependencies>
+	</metadata>
+	<files>
+		<file src="bin\Release\net7.0\NetProOA.Framework.TemplateE.ClientSdk.deps.json" target="lib\net7.0\NetProOA.Framework.TemplateE.ClientSdk.deps.json" />
+		<file src="bin\Release\net7.0\NetProOA.Framework.TemplateE.ClientSdk.dll" target="lib\net7.0\NetProOA.Framework.TemplateE.ClientSdk.dll" />
+		<file src="bin\Release\net7.0\NetProOA.Framework.TemplateE.ClientSdk.pdb" target="lib\net7.0\NetProOA.Framework.TemplateE.ClientSdk.pdb" />
+		<file src="bin\Release\net7.0\NetProOA.Framework.TemplateE.ClientSdk.xml" target="lib\net7.0\NetProOA.Framework.TemplateE.ClientSdk.xml" />
+		<file src="NetProOA.Framework.TemplateE.ClientSdk.md" target="" />
+	</files>
+</package>

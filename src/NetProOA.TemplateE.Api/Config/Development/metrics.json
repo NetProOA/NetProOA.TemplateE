@@ -1,0 +1,12 @@
+﻿{
+  "AppMetrics": {
+    "Enable": false,
+    "AppName": "NetProOA.Template.Api",
+    "InfluxDB": {
+      "DatabaseName": "NetProOA",
+      "ConnectionString": "http://0.0.0.0:8086",
+      "UserName": "",
+      "Password": ""
+    }
+  }
+}

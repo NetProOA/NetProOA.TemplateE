@@ -1,0 +1,12 @@
+{
+  "MongoDBForWrite": {
+    "ConnectionString": "mongodb://admin:xx@0.0.0.0:27017",
+    "Database": "log_management",
+    "EnableMiniProfiler": true
+  },
+  "MongoDBForRead": {
+    "ConnectionString": "mongodb://admin:xx@0.0.0.0:27017",
+    "Database": "log_management",
+    "EnableMiniProfiler": true
+  }
+}

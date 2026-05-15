@@ -1,0 +1,6 @@
+{
+  "Elasticsearch": {
+    "Address": "http://0.0.0.0:9200",
+    "IsEnableMiniProfiler": false
+  }
+}

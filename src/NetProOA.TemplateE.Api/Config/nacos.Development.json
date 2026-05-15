@@ -1,0 +1,17 @@
+﻿{
+  "Nacos": {
+    "Listeners": [
+      {
+        "Optional": false,
+        "DataId": "NetProOA.TemplateE.Api",
+        "Group": "DEFAULT_GROUP"
+      }
+    ],
+    "Namespace": "c7d3c1b2-fed5-417a-b3e3-99106cc507b0",
+    "ServerAddresses": [ "http://0.0.0.0:8848" ],
+    "UserName": "xx",
+    "Password": "xx",
+    "ConfigFilterAssemblies": [],
+    "ConfigFilterExtInfo": ""
+  }
+}

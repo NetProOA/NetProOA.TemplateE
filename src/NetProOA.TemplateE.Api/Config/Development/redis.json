@@ -1,0 +1,6 @@
+{
+  "AuthRedisConfiguration": "8.138.21.36:6380,defaultDatabase=0,password=netprooa123,abortConnect=false",
+  "BussinessRedisConfiguration": "8.138.21.36:6380,defaultDatabase=1,password=netprooa123,abortConnect=false",
+  "RedisDbForOrleans": 1,
+  "EnableRedisProfile": false
+}

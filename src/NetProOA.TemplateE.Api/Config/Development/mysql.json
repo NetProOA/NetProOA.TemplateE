@@ -1,0 +1,6 @@
+﻿{
+  "ConnectionStrings": {
+    "MySqlConnectionString": "Server=8.138.21.36;Port=3306;Database=netprooa.learn;Uid=sareadonly;Pwd=netprooa123;SslMode=none;ConvertZeroDateTime=True;",
+    "MySqlReadOnlyConnectionString": "Server=8.138.21.36;Port=3306;Database=netprooa.learn;Uid=sareadonly;Pwd=netprooa123;SslMode=none;ConvertZeroDateTime=True;"
+  }
+}

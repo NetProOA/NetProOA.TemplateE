@@ -1,0 +1,7 @@
+﻿{
+  "Apollo": {
+    "AppId": "NetProOA.Template.Api",
+    "MetaServer": "http://0.0.0.0:8080",
+    "Namespaces": [ "application" ]
+  }
+}

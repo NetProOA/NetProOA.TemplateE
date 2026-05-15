@@ -1,0 +1,9 @@
+{
+  "RabbitMQ": {
+    "HostName": "0.0.0.0",
+    "UserName": "xx",
+    "Password": "xx",
+    "ExchangeName": "NetProOAIntegratedEvent",
+    "VirtualHost": "NetProOA"
+  }
+}

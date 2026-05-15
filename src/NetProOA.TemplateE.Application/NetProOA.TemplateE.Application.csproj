@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<IncludeContentInPack>true</IncludeContentInPack>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<ContentTargetFolders>content</ContentTargetFolders>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Behaviors\**" />
+		<EmbeddedResource Remove="Behaviors\**" />
+		<None Remove="Behaviors\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Orleans.CodeGenerator" Version="7.2.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Orleans.Core.Abstractions" Version="7.2.1" />
+		<PackageReference Include="NetProOA.Framework.Authorization.Services" Version="1.1.6.6" />
+		<PackageReference Include="NetProOA.Framework.EventBus.EF" Version="1.4.0.8" />
+		<PackageReference Include="NetProOA.Framework.Infrastructure.AutoMapper" Version="1.2.1.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\NetProOA.TemplateE.EsDomain\NetProOA.TemplateE.EsDomain.csproj" />
+		<ProjectReference Include="..\NetProOA.TemplateE.MongoRepository\NetProOA.TemplateE.MongoRepository.csproj" />
+		<ProjectReference Include="..\NetProOA.TemplateE.Repository\NetProOA.TemplateE.Repository.csproj" />
+	</ItemGroup>
+
+</Project>

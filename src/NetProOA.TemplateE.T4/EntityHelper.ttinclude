@@ -1,0 +1,28 @@
+﻿<#@ assembly name="System.Core"#>
+<#@ assembly name="System.Data"#>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#+
+    public class EntityHelper
+    {
+        public static List<Entity> GetEntities()
+        {
+            var list = new List<Entity>();
+            list.Add(new Entity("ExampleProductMc"));
+            return list;
+        }
+    }
+ 
+    public class Entity
+    {
+        public Entity(string name)
+        {
+            this.EntityName = name;
+        }
+ 
+        public string EntityName { get;set; }
+    }
+
+#>

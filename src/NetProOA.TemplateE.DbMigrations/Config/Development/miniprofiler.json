@@ -1,0 +1,5 @@
+﻿{
+  "MongoDBMiniProfiler": {
+    "ConnectionString": "mongodb://admin:xxx@0.0.0.0:27017/log_management?authSource=admin&appName=NetProOA.TemplateE.Api"
+  }
+}
