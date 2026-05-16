@@ -75,22 +75,11 @@ dotnet run
 
 ```
 src/
-├── NetProOA.TemplateE.Api/           # API 主项目
-│   ├── Config/                       # 配置文件
-│   ├── Controllers/                  # API 控制器
-│   ├── Deploy/                       # 部署配置
-│   │   ├── nginx/                    # Nginx 配置
-│   │   └── k8s.yml                   # Kubernetes 部署
-│   ├── Program.cs                    # 入口文件
-│   └── Startup.cs                    # 启动配置
-├── NetProOA.TemplateE.ClientSdk/     # 客户端 SDK
-├── NetProOA.TemplateE.Api.Test/      # 单元测试
-├── NetProOA.TemplateE.T4/            # T4 代码生成器
-│   ├── EntityHelper.ttinclude        # 实体定义配置
-│   ├── EntityIntGenerate.tt          # Int 主键代码生成
-│   ├── EntityGuidGenerate.tt         # Guid 主键代码生成
-│   └── VueGenerate.tt                # Vue 前端代码生成
-└── NetProOA.TemplateE.Api.sln        # 解决方案文件
+├── NetProOA.TemplateE.Domain/        # 领域层
+├── NetProOA.TemplateE.Repository/    # 仓储层
+├── NetProOA.TemplateE.Application/   # 应用层
+├── NetProOA.TemplateE.Api/           # API 层
+└── NetProOA.TemplateE.Web/           # 展示层
 ```
 
 ## 🔧 T4 代码生成器
