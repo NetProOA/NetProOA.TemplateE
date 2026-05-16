@@ -224,9 +224,9 @@ kubectl apply -f Deploy/k8s.yml
 
 ## 📖 更多资源
 
-- **官方文档**: [https://netprooa.com/docs](https://netprooa.com/docs)
-- **API 文档**: [https://netprooa.com/api](https://netprooa.com/api)
-- **示例项目**: [https://netprooa.com/examples](https://netprooa.com/examples)
+- **官方文档**: [https://netprooa.com](https://netprooa.com)
+- **API 文档**: [https://netprooa.com/Packages](https://netprooa.com/Packages)
+- **示例项目**: [https://netprooa.com/Template](https://netprooa.com/Template)
 
 ## 📄 许可证
 
