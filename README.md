@@ -179,6 +179,19 @@ src/
      - GET /api/{entityName}s/{id} - 详情
      - DELETE /api/{entityName}s - 删除
 
+7. **Vue 前端**:
+   - `{entityName}.js` - API 封装文件，包含分页查询、保存、详情、删除方法
+   - `{entityName}Router.js` - 路由配置，路径为 `/api/{entityName}s`
+   - `Index.vue` - 列表页面，包含查询表单、数据表格、分页组件
+   - `Edit.vue` - 编辑页面，包含表单验证和保存逻辑
+
+**Vue 技术栈**:
+- Element Plus 组件库
+- vxe-table 表格组件
+- 使用 post/put/get/del 封装请求
+- 支持权限控制显示
+- 集成确认弹窗和加载状态
+
 命名空间约定：
 - 领域层: `SaaS.TemplateE.Domain.*`
 - 应用层: `SaaS.TemplateE.Application.*`
